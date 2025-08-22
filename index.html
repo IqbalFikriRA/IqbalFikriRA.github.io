@@ -1,60 +1,318 @@
 <!DOCTYPE html>
-<html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portofolio Muhammad Iqbal Fikri Robani Amin</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
-  <body class="bg-white text-gray-800 font-sans">
-    <!-- Header -->
-    <header class="text-center p-10 bg-gray-100 shadow">
-      <h1 class="text-4xl font-bold">Muhammad Iqbal Fikri Robani Amin</h1>
-      <p class="text-lg mt-2">Data Analyst | Web Developer</p>
-      <a href="CV_Iqbal.pdf" download class="mt-4 inline-block px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Download CV</a>
-    </header>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Iqbal Fikri Robani Amin — Portofolio</title>
+  <meta name="description" content="Portofolio Muhammad Iqbal Fikri Robani Amin — Data Analyst & Web Developer. Menampilkan proyek, skill, dan kontak." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💼</text></svg>">
+  <script>
+    // Dark mode: baca preferensi di localStorage sebelum render
+    (() => {
+      const stored = localStorage.getItem('theme');
+      if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    })();
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial'] },
+          boxShadow: {
+            'soft': '0 10px 30px -12px rgba(0,0,0,.25)'
+          },
+          keyframes: {
+            fadeUp: { '0%': { opacity: 0, transform: 'translateY(12px)' }, '100%': { opacity: 1, transform: 'translateY(0)' } }
+          },
+          animation: { fadeUp: 'fadeUp .6s ease-out both' }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800 dark:bg-gray-950 dark:text-gray-100 font-sans">
+  <!-- Navbar -->
+  <header class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-white/70 bg-white/90 dark:bg-gray-950/80 border-b border-gray-200/60 dark:border-gray-800">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex h-16 items-center justify-between">
+      <a href="#" class="flex items-center gap-2 font-extrabold tracking-tight">
+        <span class="inline-block size-8 grid place-items-center rounded bg-blue-600 text-white">IQ</span>
+        <span class="hidden sm:block">Muhammad Iqbal Fikri Robani Amin</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#about" class="hover:text-blue-600 dark:hover:text-blue-400">Tentang</a>
+        <a href="#skills" class="hover:text-blue-600 dark:hover:text-blue-400">Keahlian</a>
+        <a href="#projects" class="hover:text-blue-600 dark:hover:text-blue-400">Proyek</a>
+        <a href="#contact" class="hover:text-blue-600 dark:hover:text-blue-400">Kontak</a>
+        <a href="CV_Iqbal.pdf"
+          download="CV_MuhammadIqbalFikri.pdf"
+          type="application/pdf"
+          class="inline-flex items-center gap-2 rounded-md bg-blue-600 px-3 py-2 text-white hover:bg-blue-700 transition">
+          <!-- icon download -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 3v12m0 0 4-4m-4 4-4-4M4 21h16"/>
+          </svg>
+          CV
+        </a>
 
-    <!-- Tentang Saya -->
-    <section id="about" class="p-10 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Tentang Saya</h2>
-      <p>Saya adalah lulusan Informatika yang memiliki ketertarikan pada data, pengembangan web, dan machine learning. Memiliki pengalaman mengembangkan dashboard dan melakukan analisis data penjualan menggunakan Power BI, Python, dan SQL.</p>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="p-10 bg-gray-50 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Keahlian</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded text-center">Python</span>
-        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded text-center">SQL</span>
-        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded text-center">Power BI</span>
-        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded text-center">JavaScript</span>
-        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded text-center">HTML</span>
-        <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded text-center">CSS</span>
+        <button id="themeToggle" class="rounded-md border border-gray-300 dark:border-gray-700 px-2 py-2 hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle theme">
+          <!-- icon moon/sun -->
+          <span id="themeIcon">
+            🌙
+          </span>
+        </button>
       </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="p-10 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Project</h2>
-      <div class="space-y-6">
-        <div class="border rounded p-4 shadow hover:shadow-md transition">
-          <h3 class="text-xl font-bold">Dashboard Manajemen Perusahaan</h3>
-          <p class="mt-1">Membuat sistem Manajemen Perusahaan</p>
-          <a href="https://github.com/IqbalFIkriRA/dashboard-sales" class="text-blue-600 hover:underline mt-2 inline-block">Lihat GitHub</a>
+      <!-- Mobile menu button -->
+      <button id="mobileBtn" class="md:hidden rounded-md border border-gray-300 dark:border-gray-700 p-2" aria-label="Buka menu">
+        <!-- icon burger -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </nav>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-gray-200 dark:border-gray-800">
+      <div class="mx-auto max-w-7xl px-4 py-3 flex flex-col gap-3">
+        <a href="#about" class="py-2 hover:text-blue-600 dark:hover:text-blue-400">Tentang</a>
+        <a href="#skills" class="py-2 hover:text-blue-600 dark:hover:text-blue-400">Keahlian</a>
+        <a href="#projects" class="py-2 hover:text-blue-600 dark:hover:text-blue-400">Proyek</a>
+        <a href="#contact" class="py-2 hover:text-blue-600 dark:hover:text-blue-400">Kontak</a>
+        <div class="flex items-center gap-2">
+          <a href="CV_Iqbal.pdf" download class="inline-flex items-center gap-2 rounded-md bg-blue-600 px-3 py-2 text-white hover:bg-blue-700 transition">Unduh CV</a>
+          <button id="themeToggleSm" class="rounded-md border border-gray-300 dark:border-gray-700 px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-800">Tema</button>
         </div>
-        <!-- Tambahkan lebih banyak project jika ada -->
       </div>
-    </section>
+    </div>
+  </header>
 
-    <!-- Kontak -->
-    <section id="contact" class="p-10 bg-gray-50 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-semibold mb-4">Kontak</h2>
-      <p>Email: <a href="mailto:iqbalfikri1001@gmail.com" class="text-blue-600 hover:underline">iqbalfikri1001@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/muhammad-iqbal-fikri/" class="text-blue-600 hover:underline">Muhammad Iqbal Fikri Robani Amin</a></p>
-    </section>
+  <!-- Hero -->
+  <section class="relative">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-10 items-center">
+      <div class="space-y-6 animate-fadeUp">
+        <span class="inline-flex items-center gap-2 rounded-full bg-blue-50 text-blue-700 dark:bg-blue-400/10 dark:text-blue-300 px-3 py-1 text-sm">
+          <span class="size-2 bg-blue-600 rounded-full"></span> Tersedia untuk peluang kerja
+        </span>
+        <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+          Data Analyst & Web Developer
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+          Saya menggabungkan analitik data (Python, SQL, Power BI) dan pengembangan web (HTML, CSS, JavaScript) untuk membangun solusi yang <em>insightful</em> dan mudah digunakan.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#projects" class="inline-flex items-center gap-2 rounded-md bg-blue-600 px-5 py-3 text-white hover:bg-blue-700 transition shadow-soft">
+            Lihat Proyek
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="inline-flex items-center gap-2 rounded-md border border-gray-300 dark:border-gray-700 px-5 py-3 hover:bg-gray-100 dark:hover:bg-gray-800 transition">
+            Hubungi Saya
+          </a>
+        </div>
+        <div class="flex flex-wrap gap-2 text-sm">
+          <span class="rounded bg-gray-100 dark:bg-gray-800 px-3 py-1">Python</span>
+          <span class="rounded bg-gray-100 dark:bg-gray-800 px-3 py-1">SQL</span>
+          <span class="rounded bg-gray-100 dark:bg-gray-800 px-3 py-1">Power BI</span>
+          <span class="rounded bg-gray-100 dark:bg-gray-800 px-3 py-1">HTML</span>
+          <span class="rounded bg-gray-100 dark:bg-gray-800 px-3 py-1">CSS</span>
+          <span class="rounded bg-gray-100 dark:bg-gray-800 px-3 py-1">JavaScript</span>
+          <span class="rounded bg-gray-100 dark:bg-gray-800 px-3 py-1">Mobile</span>
+        </div>
+      </div>
+      <div class="lg:justify-self-end animate-fadeUp">
+        <!-- Foto / ilustrasi -->
+        <div class="relative aspect-square max-w-md mx-auto overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 shadow-soft">
+          <!-- Ganti src dengan foto Anda -->
+          <img src="assets/profile.jpg" alt="Foto Muhammad Iqbal Fikri Robani Amin" class="size-full object-cover" />
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4 text-white">
+            <p class="text-sm opacity-90">Sidoarjo, Indonesia</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer class="text-center py-4 text-gray-500 text-sm">
-      &copy; 2025 Muhammad Iqbal Fikri Robani Amin. All rights reserved.
-    </footer>
-  </body>
+  <!-- Tentang -->
+  <section id="about" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-6">Tentang Saya</h2>
+    <div class="grid lg:grid-cols-3 gap-8">
+      <p class="lg:col-span-2 text-gray-700 dark:text-gray-300 animate-fadeUp">
+        Lulusan Informatika dengan fokus pada analitik data dan pengembangan web. Berpengalaman membangun dashboard penjualan, otomasi laporan, dan integrasi data end-to-end. Terbiasa dengan <span class="font-medium">Python, SQL, Power BI</span>, serta membangun antarmuka web yang bersih dan responsif.
+      </p>
+      <div class="rounded-xl border border-gray-200 dark:border-gray-800 p-4 animate-fadeUp">
+        <h3 class="font-semibold mb-2">Highlight</h3>
+        <ul class="space-y-2 text-sm text-gray-700 dark:text-gray-300">
+          <li>• Dashboard Manajemen Proyek (Power BI + Python)</li>
+          <li>• ETL sederhana & data cleaning (Pandas/SQL)</li>
+          <li>• Web portofolio cepat & responsif (Tailwind)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Riwayat Pendidikan -->
+  <section id="education" class="bg-white dark:bg-gray-950 py-12 lg:py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Riwayat Pendidikan</h2>
+      <div class="space-y-6">
+        <!-- Item pendidikan -->
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 border border-gray-200 dark:border-gray-800 rounded-lg animate-fadeUp">
+          <div>
+            <h3 class="font-semibold text-lg">Universitas Pembangunan Nasional "Veteran" Jawa Timur</h3>
+            <p class="text-gray-600 dark:text-gray-300">S1 - Informatika</p>
+          </div>
+          <span class="mt-2 sm:mt-0 text-gray-500 dark:text-gray-400">2021 - 2025</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 border border-gray-200 dark:border-gray-800 rounded-lg animate-fadeUp">
+          <div>
+            <h3 class="font-semibold text-lg">Bangkit Academy</h3>
+            <p class="text-gray-600 dark:text-gray-300">Android Developmnet</p>
+          </div>
+          <span class="mt-2 sm:mt-0 text-gray-500 dark:text-gray-400">Agustus 2023 - Desember 2023</span>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 border border-gray-200 dark:border-gray-800 rounded-lg animate-fadeUp">
+          <div>
+            <h3 class="font-semibold text-lg">SMA Negeri 1 Gedangan</h3>
+          </div>
+          <span class="mt-2 sm:mt-0 text-gray-500 dark:text-gray-400">2018 - 2021</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Keahlian -->
+  <section id="skills" class="bg-gray-50 dark:bg-gray-900/40 py-12 lg:py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Keahlian</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+        <!-- Badge -->
+        <span class="px-4 py-2 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-center">Python</span>
+        <span class="px-4 py-2 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-center">Tableu</span>
+        <span class="px-4 py-2 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-center">Power BI</span>
+        <span class="px-4 py-2 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-center">Excel</span>
+        <span class="px-4 py-2 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-center">HTML</span>
+        <span class="px-4 py-2 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-center">CSS</span>
+        <span class="px-4 py-2 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-center">JavaScript</span>
+        <span class="px-4 py-2 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-center">Git/GitHub</span>
+        <span class="px-4 py-2 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-center">Laravel</span>
+        <span class="px-4 py-2 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-center">REST API</span>
+        <span class="px-4 py-2 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-center">PostgreSQL</span>  
+        <span class="px-4 py-2 rounded-md bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-center">Mobile</span>          
+      </div>
+    </div>
+  </section>
+
+  <!-- Proyek -->
+  <section id="projects" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="flex items-end justify-between mb-6">
+      <h2 class="text-2xl sm:text-3xl font-bold">Proyek</h2>
+      <a href="https://github.com/IqbalFIkriRA" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:underline">GitHub ↗</a>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card Proyek -->
+      <article class="group rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden hover:shadow-soft transition animate-fadeUp">
+        <div class="aspect-video overflow-hidden">
+          <img src="assets/project-1.jpg" alt="Dashboard Manajemen Proyek" class="size-full object-cover group-hover:scale-[1.02] transition duration-300">
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold">Dashboard Manajemen Perusahaan </h3>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">Pembuatan Manajemen Proyek berbasis Website & metrik performa dengan Power BI + Python.</p>
+          <div class="mt-3 flex items-center gap-3 text-sm">
+            <a href="https://github.com/username/dashboard-sales" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:underline">GitHub</a>
+            <span class="text-gray-400">•</span>
+            <span class="text-gray-500 dark:text-gray-400">Power BI, Python</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Duplikasi card lain di sini nanti -->
+      <article class="group rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 overflow-hidden hover:shadow-soft transition animate-fadeUp">
+        <div class="aspect-video overflow-hidden">
+          <img src="assets/project-2.jpg" alt="Web Portofolio" class="size-full object-cover group-hover:scale-[1.02] transition duration-300">
+        </div>
+        <div class="p-4">
+          <h3 class="font-semibold">Web Portofolio</h3>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-300">Landing page responsif dengan Tailwind + Dark Mode.</p>
+          <div class="mt-3 flex items-center gap-3 text-sm">
+            <a href="https://github.com/IqbalFIkriRA/portofolio" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:underline">Repo</a>
+            <span class="text-gray-400">•</span>
+            <span class="text-gray-500 dark:text-gray-400">HTML, JS, Tailwind</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Kontak -->
+  <section id="contact" class="bg-gray-50 dark:bg-gray-900/40 py-12 lg:py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Kontak</h2>
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2">
+          <p class="text-gray-700 dark:text-gray-300">
+            Tertarik berkolaborasi atau ada lowongan yang cocok? Silakan hubungi saya melalui kanal berikut:
+          </p>
+          <ul class="mt-4 space-y-2">
+            <li>Email: <a href="mailto:iqbalfikri1001@gmail.com" class="text-blue-600 dark:text-blue-400 hover:underline">iqbalfikri1001@gmail.com</a></li>
+            <li>GitHub: <a href="https://github.com/IqbalFIkriRA" target="_blank" rel="noopener" class="text-blue-600 dark:text-blue-400 hover:underline">github.com/IqbalFIkriRA</a></li>
+            <li>LinkedIn: <a href="https://www.linkedin.com/in/muhammad-iqbal-fikri/" target="_blank" rel="noopener"class="text-blue-600 dark:text-blue-400 hover:underline">Muhammad Iqbal Fikri Robani Amin</a></li>
+          </ul>
+        </div>
+        <div class="rounded-xl border border-gray-200 dark:border-gray-800 p-4">
+          <h3 class="font-semibold mb-2">Preferensi</h3>
+          <p class="text-sm text-gray-700 dark:text-gray-300">Hybrid/Remote • Full-time / Project-based • WIB</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center py-8 text-sm text-gray-500">
+    &copy; <span id="year"></span> Muhammad Iqbal Fikri Robani Amin. All rights reserved.
+  </footer>
+
+  <!-- Interaksi & util -->
+  <script>
+    // Tahun dinamis
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Toggle mobile menu
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileBtn?.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Dark mode toggle
+    function switchTheme() {
+      const root = document.documentElement;
+      const isDark = root.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+    }
+    document.getElementById('themeToggle')?.addEventListener('click', switchTheme);
+    document.getElementById('themeToggleSm')?.addEventListener('click', switchTheme);
+    // Set icon awal
+    document.getElementById('themeIcon').textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+
+    // Reveal on scroll (animasi sederhana)
+    const revealOnScroll = () => {
+      const nodes = document.querySelectorAll('.animate-fadeUp');
+      const vh = window.innerHeight;
+      nodes.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < vh - 80) el.style.animationPlayState = 'running';
+        else el.style.animationPlayState = 'paused';
+      });
+    };
+    // Pause semua dulu, jalankan saat terlihat
+    document.querySelectorAll('.animate-fadeUp').forEach(el => el.style.animationPlayState = 'paused');
+    window.addEventListener('scroll', revealOnScroll, { passive: true });
+    window.addEventListener('load', revealOnScroll);
+  </script>
+</body>
 </html>
